@@ -1,0 +1,62 @@
+
+
+// *{
+//     // box-sizing: border-box;
+//     margin: 0rem;
+//     padding: 0rem;
+//     font-family: 'Poppins', sans-serif;
+    
+// }
+.todo-main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+
+.todo-form{
+    input{
+        padding: .25rem;
+        height: 2rem;
+        width: 10rem;
+        font-size: 1rem;
+    }
+    button{
+        padding: .25rem;
+        margin:1rem;
+        border-radius: .5rem;
+    }
+}
+
+
+
+.todo-rows{
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+.todo-row{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    border: .25rem solid black;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .25rem;
+    width: 10rem;
+}
+.toShow-todo{
+    display: flex;
+    flex-direction: row;
+    margin: .5rem;
+    padding: .25rem;
+    justify-content: space-around;
+    width: 20rem;
+}
+.todo-delete{
+    padding:.5rem;
+    margin-left: 1rem;
+}
