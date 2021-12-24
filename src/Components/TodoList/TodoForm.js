@@ -3,9 +3,11 @@ import styles from './TodoList.module.scss';
 
 const TodoForm = (props) => {
     const [input, setInput] = useState('')
+    // const [inputUpdate, setInputUpdate] = useState('')
 
     const handleChange = (e) => {
-        setInput(e.target.value)
+        setInput(e.target.value);
+        // props.edit ? setInputUpdate(e.target.value) : setInput(e.target.value);
     }
 
     const handleSubmit = (e) =>{
@@ -18,8 +20,34 @@ const TodoForm = (props) => {
         setInput('');
     }
 
+    const handleUpdateSubmit =(e)=>{
+        e.preventDefault();
+        props.onSubmit({
+            id: props.todo.id,
+            text: input,
+            isComplete: props.todo.isComplete
+        });
+        setInput('');
+    }
+
+
     return (
-        <form className={styles['todo-form']} onSubmit={handleSubmit}>
+        <form className={styles['todo-form']}  onSubmit={props.edit ? handleUpdateSubmit : handleSubmit}>
+        {props.edit ? 
+        <>
+            <input 
+                name="text"
+                value={input}
+                placeholder='update item'
+                onChange={handleChange}
+                autoComplete='off'
+            />
+            <button onClick={handleUpdateSubmit}>
+                Update
+            </button>
+        </>
+            :
+        <>
             <input 
                 name="text"
                 value={input}
@@ -30,6 +58,9 @@ const TodoForm = (props) => {
             <button onClick={handleSubmit}>
                 Add Task
             </button>
+        </>
+        }
+            
         </form>
     );
 };
