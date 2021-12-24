@@ -4,7 +4,6 @@ import { FiEdit3, FiPlus} from "react-icons/fi";
 
 const TodoForm = (props) => {
     const [input, setInput] = useState('')
-
     const handleChange = (e) => {
         setInput(e.target.value);
     }

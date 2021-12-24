@@ -7,8 +7,8 @@
 }
 
 :global ::-webkit-scrollbar-thumb {
-    background: rgb(49, 48, 48);
-    border-radius: 20px;
+    background:#181717a3; //rgb(49, 48, 48);
+    border-radius: 20px;  
 }
 
 :global ::-webkit-scrollbar-track {
@@ -25,32 +25,3 @@
 i{
     width: 1em;
 }
-@media only screen and (min-width: 200px) and (max-width: 600px) {
-    html, body {
-        font-size: 60%;
-    }
-}
-
-// @media only screen and (min-width: 600px) and (max-width: 1024px) {
-//     html, body {
-//         font-size: 70%;
-//     }
-// }
-
-// @media only screen and (min-width: 1024px) and (max-width: 1399px) {
-//     html, body {
-//         font-size: 80%;
-//     }
-// }
-
-// @media only screen and (min-width: 1400px) and (max-width: 1920px) {
-//     html, body {
-//         font-size: 100%;
-//     }
-// }
-
-// @media only screen and (min-width: 1921px)  {
-//     html, body {
-//         font-size: 120%;
-//     }
-// }

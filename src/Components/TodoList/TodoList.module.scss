@@ -8,7 +8,6 @@
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     color:whitesmoke;
-    background: linear-gradient(45deg, orangered 0%, rgba(13,14,14,1) 40% );
     &__title{
         font-family: "Poppins", sans-serif;
         font-size: 3rem;
@@ -120,26 +119,19 @@
     flex-direction: row; 
     justify-content: space-between;
     align-items: center;
-    border-radius: .5rem;
     padding:  1rem 1rem;
     margin: .25rem;
-    backdrop-filter: blur(6px);
     width: 40rem;
-    height: 3rem;
+    height: auto;
     font-size: 1rem;
-    &:hover{
-        border-bottom: .15rem solid orangered;
-    }
 }
 .todo-row-text{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width:25rem;
-    &:hover{
-        font-weight:bold;
-        cursor: pointer;
-    }
+    white-space: wrap;
+    width:30rem;
+    // &:hover{
+    //     font-weight:bold;
+    //     cursor: pointer;
+    // }
 }
 .todo-row-left{
     color:#fffafa;
