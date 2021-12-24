@@ -76,8 +76,9 @@ const TodoLists = () => {
     return (
         <>
         <div className={styles['todo-main']}>
-        { edit   ? <TodoForm edit={true} todo={newTodo} onSubmit={updateTodo} />
-            : <TodoForm edit={false} onSubmit={addTodo} /> }
+        <TodoForm edit={false} onSubmit={addTodo} /> 
+        { edit   && <TodoForm edit={true} todo={newTodo} onSubmit={updateTodo} />}
+             
             <div className={styles['toShow-todo']}>
                 <button onClick={()=>setToShowTodo('all')} >All</button>
                 <button onClick={()=>setToShowTodo('active')} >Active</button>

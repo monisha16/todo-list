@@ -1,5 +1,4 @@
-import React,{useState} from 'react';
-import TodoForm from './TodoForm';
+import React from 'react';
 import styles from './TodoList.module.scss';
 
 const Todo = (props) => {

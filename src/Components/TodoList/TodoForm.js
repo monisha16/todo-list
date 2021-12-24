@@ -3,11 +3,9 @@ import styles from './TodoList.module.scss';
 
 const TodoForm = (props) => {
     const [input, setInput] = useState('')
-    // const [inputUpdate, setInputUpdate] = useState('')
 
     const handleChange = (e) => {
         setInput(e.target.value);
-        // props.edit ? setInputUpdate(e.target.value) : setInput(e.target.value);
     }
 
     const handleSubmit = (e) =>{
@@ -38,9 +36,10 @@ const TodoForm = (props) => {
             <input 
                 name="text"
                 value={input}
-                placeholder='update item'
+                placeholder={props.todo.text}
                 onChange={handleChange}
                 autoComplete='off'
+                label="Update task"
             />
             <button onClick={handleUpdateSubmit}>
                 Update
