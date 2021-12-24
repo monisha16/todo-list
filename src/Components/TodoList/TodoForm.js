@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import styles from './TodoList.module.scss';
+import { FiEdit3, FiPlus} from "react-icons/fi";
 
 const TodoForm = (props) => {
     const [input, setInput] = useState('')
@@ -30,7 +31,7 @@ const TodoForm = (props) => {
 
 
     return (
-        <form className={styles['todo-form']}  onSubmit={props.edit ? handleUpdateSubmit : handleSubmit}>
+        <form className={styles['todo-form']} onSubmit={props.edit ? handleUpdateSubmit : handleSubmit}>
         {props.edit ? 
         <>
             <input 
@@ -39,10 +40,11 @@ const TodoForm = (props) => {
                 placeholder={props.todo.text}
                 onChange={handleChange}
                 autoComplete='off'
-                label="Update task"
+                className={styles['todo-form__input']}
             />
-            <button onClick={handleUpdateSubmit}>
-                Update
+        
+            <button className={styles['todo-form__button']} onClick={handleUpdateSubmit}>
+                <FiEdit3 />
             </button>
         </>
             :
@@ -53,9 +55,10 @@ const TodoForm = (props) => {
                 placeholder='todo...'
                 onChange={handleChange}
                 autoComplete='off'
+                className={styles['todo-form__input']} 
             />
-            <button onClick={handleSubmit}>
-                Add Task
+            <button className={styles['todo-form__button']}  onClick={handleSubmit}>
+                <FiPlus/>
             </button>
         </>
         }

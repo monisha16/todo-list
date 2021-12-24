@@ -5,6 +5,7 @@
   "dependencies": {
     "@material/react-list": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
+    "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

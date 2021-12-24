@@ -1,52 +1,87 @@
 
-
-// *{
-//     // box-sizing: border-box;
-//     margin: 0rem;
-//     padding: 0rem;
-//     font-family: 'Poppins', sans-serif;
-    
-// }
-.todo-main{
+.todo-main-container{
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-weight: 900;
+    margin: 0;
+    padding: 1rem;
     font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    color:whitesmoke;
+    background: linear-gradient(45deg, orangered 0%, rgba(13,14,14,1) 40% );
+    &__title{
+        font-family: "Poppins", sans-serif;
+        font-size: 3rem;
+        color: orangered;
+        padding: 0.5rem;
+        font-weight: 900;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.todo-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: whitesmoke;
+    width: 40rem;
+    height: auto;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
 }
 
 .todo-form{
-    input{
-        padding: .25rem;
-        height: 2rem;
-        width: 10rem;
-        font-size: 1rem;
-    }
-    button{
-        padding: .25rem;
-        margin:1rem;
-        border-radius: .5rem;
-    }
-}
-
-
-
-.todo-rows{
-    
     display: flex;
-    flex-direction: column;
-    
-}
-.todo-row{
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    border: .25rem solid black;
-    border-radius: .5rem;
-    padding: .5rem;
-    margin: .25rem;
-    width: 10rem;
+    color: rgb(44, 43, 43);
+    width: 28rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
+    border-radius:1rem;
+
+    &__input{
+        padding: .5rem;
+        height: 3rem;
+        width: 25rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+        border-style: none ;       
+        font-family: 'Poppins', sans-serif;   
+    }
+    &__button{
+        border-radius: 50%;
+        background-color: transparent;
+        color:#aca5a5;
+        border-style: none;
+        height: 3.5rem;
+        font-size: 2rem;
+        &:hover{
+            color:orangered;
+            cursor: pointer;
+        }
+    }
+}
+
+.todo-list-header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width:40rem;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+    border-bottom: .15rem solid orangered;
+    &__icon{
+        color:#fffafa;
+        &:hover{
+             color:orangered;
+             cursor: pointer;
+        }
+    }
 }
 .toShow-todo{
     display: flex;
@@ -54,9 +89,130 @@
     margin: .5rem;
     padding: .25rem;
     justify-content: space-around;
-    width: 20rem;
+    width: 30rem;
+    font-size:1.2rem;
+
+        &__button{
+            color:#fffafa;
+            border-style:none;
+            background-color:transparent;
+            font-size:1.2rem;
+            &:hover{
+                color:orangered;
+                cursor: pointer;
+            }
+        }
 }
-.todo-delete{
-    padding:.5rem;
-    margin-left: 1rem;
+
+
+.todo-list-content{
+    display: flex;
+    flex-direction:column;
+    width: 40rem;
+    justify-content: flex-start;
+    height: 55vh;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+
+.todo-row{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    border-radius: .5rem;
+    padding:  1rem 1rem;
+    margin: .25rem;
+    backdrop-filter: blur(6px);
+    width: 40rem;
+    height: 3rem;
+    font-size: 1rem;
+    &:hover{
+        border-bottom: .15rem solid orangered;
+    }
+}
+.todo-row-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:25rem;
+    &:hover{
+        font-weight:bold;
+        cursor: pointer;
+    }
+}
+.todo-row-left{
+    color:#fffafa;
+        border-style:none;
+        background-color:transparent;
+        font-size: 1rem;
+        font-weight: bold;
+        width: 3.5rem;
+    &:hover{
+        color:orangered;
+        cursor: pointer;
+    }
+}
+.todo-row-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__button{
+        color:#fffafa;
+        border-style:none;
+        background-color:transparent;
+        font-size: 1rem;
+        font-weight: bold;
+        width: 3.5rem;
+        &:hover{
+            color:orangered;
+            cursor: pointer;
+        }
+    }
+}
+
+.todo-footer{
+    padding: .25rem;
+    border-top: .15rem solid orangered;
+    font-style:italic;
+    margin-top:.5rem;
+}
+
+.modal {
+    position: fixed;
+    z-index: 200;
+    top: 30%;
+    width: auto;
+    border-radius: 1rem;
+    box-shadow: #1c1b1c 0px 7px 10px 0px;
+    padding: 0.25rem 1rem;
+    align-content: flex-end;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    font-family: "Poppins", sans-serif;
+    height: 10rem;
+    &__header{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        h1{
+            color: orangered;
+            margin: 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        &__cancel{
+            background-color: transparent;
+            color:white;
+            border-style: none;
+            font-size: 1rem;
+            font-weight: bolder;
+            z-index:2;
+            &:hover{
+                color:orangered;
+                cursor: pointer;
+            }
+        }
+    }
+  
 }
