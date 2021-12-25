@@ -128,9 +128,12 @@ const TodoLists = () => {
                         />
                     }
                     <div className={styles['toShow-todo']}>
-                        <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('all')} >All</button> |
-                        <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('active')} >Active</button> |
-                        <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('complete')} >Complete</button>
+                        <button style={{color: toShowTodo === 'all' ? 'orangered': 'whitesmoke'}} 
+                            className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('all')} >All</button> |
+                        <button style={{color: toShowTodo === 'active'? 'orangered': 'whitesmoke'}}
+                            className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('active')} >Active</button> |
+                        <button style={{color: toShowTodo === 'complete'? 'orangered': 'whitesmoke'}} 
+                            className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('complete')} >Complete</button>
                     </div>
 
                     {  todoList && todoList.some((todo)=> todo.isComplete) ?
