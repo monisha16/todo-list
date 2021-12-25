@@ -107,7 +107,7 @@ const TodoLists = () => {
             <div className={styles['todo-list-container']}>
 
                 <div className={styles['todo-list-header']}>
-                    {   todoList.length ?
+                    {   todoList.length !== 0 ?
                     <FiCheckCircle className={styles['todo-list-header__icon']} 
                         style={{
                            color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
