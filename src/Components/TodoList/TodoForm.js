@@ -1,9 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState,useRef, useEffect} from 'react';
 import styles from './TodoList.module.scss';
 import { FiEdit3, FiPlus} from "react-icons/fi";
 
 const TodoForm = (props) => {
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState('');
+    const inputRef = useRef();
+
+    useEffect(()=>{
+        inputRef.current.focus()
+    },[])
     const handleChange = (e) => {
         setInput(e.target.value);
     }
@@ -40,6 +45,7 @@ const TodoForm = (props) => {
                 onChange={handleChange}
                 autoComplete='off'
                 className={styles['todo-form__input']}
+                ref={inputRef}
             />
         
             <button className={styles['todo-form__button']} onClick={handleUpdateSubmit}>
@@ -55,6 +61,7 @@ const TodoForm = (props) => {
                 onChange={handleChange}
                 autoComplete='off'
                 className={styles['todo-form__input']} 
+                ref={inputRef}
             />
             <button className={styles['todo-form__button']}  onClick={handleSubmit}>
                 <FiPlus/>

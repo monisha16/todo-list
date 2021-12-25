@@ -8,4 +8,5 @@
 }
 html,body{
 background: linear-gradient(45deg, #2e2c2c 0%, rgba(13,14,14,1) 40% );
+background-size: 500% 500%;
 }

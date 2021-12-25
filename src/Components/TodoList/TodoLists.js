@@ -11,12 +11,11 @@ const TodoLists = () => {
     let [edit, setEdit] = useState(false)
     let [newTodo, setNewTodo] = useState([])
     let todos = [];
-    let [todoHeader, setTodoHeader] = useState(JSON.parse(localStorage.getItem("todoHeader")))
+    let [todoHeader, setTodoHeader] = useState(()=>JSON.parse(localStorage.getItem("todoHeader")))
 
     useEffect(()=>{
         localStorage.setItem("todos", JSON.stringify(todoList))
         localStorage.setItem("todoHeader", JSON.stringify(todoHeader))
-
     },[todoList, todoHeader])
 
     const addTodo = (todo) =>{
@@ -78,15 +77,15 @@ const TodoLists = () => {
     return (
         <div className={styles['todo-main-container']}>
             <div> 
-            <input 
-                value={todoHeader}
-                placeholder={'plan your todos!'}
-                maxLength="20"
-                name="text"
-                onChange={handleTodoHeader}
-                autoComplete='off'
-                className={styles['todo-main-container__title']}
-            />
+                <input 
+                    value={todoHeader}
+                    placeholder={'plan your todos!'}
+                    maxLength="20"
+                    name="text"
+                    onChange={handleTodoHeader}
+                    autoComplete='off'
+                    className={styles['todo-main-container__title']}
+                />
             </div>
 
             <div className={styles['todo-form-container']}>
@@ -103,16 +102,16 @@ const TodoLists = () => {
                         <TodoForm edit={true} todo={newTodo} onSubmit={updateTodo} />
                     </div>
                 }                
-             </div>   
-
+            </div>   
 
             <div className={styles['todo-list-container']}>
 
                 <div className={styles['todo-list-header']}>
+                    {   todoList.length ?
                     <FiCheckCircle className={styles['todo-list-header__icon']} 
                         style={{
-                           color: toggleAllComplete ? 'white' : 'orangered' 
-                        }}
+                           color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
+                        }} 
                         onClick={ () => {
                             let newTodo = todoList.map((todo)=>({
                             ...todo,
@@ -121,7 +120,7 @@ const TodoLists = () => {
                             setTodoList([...newTodo]);
                             settoggleAllComplete(!toggleAllComplete);
                         }}
-                    />
+                    /> : null }
                     <div className={styles['toShow-todo']}>
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('all')} >All</button> |
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('active')} >Active</button> |
