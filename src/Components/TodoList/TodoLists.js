@@ -110,7 +110,7 @@ const TodoLists = () => {
                     { todoList && todoList.length !==0 &&
                         <FiCheckCircle className={styles['todo-list-header__icon']} 
                         style={{
-                           color: todoList?.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
+                           color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
                         }} 
                         onClick={ () => {
                             let newTodo = todoList.map((todo)=>({
@@ -127,7 +127,7 @@ const TodoLists = () => {
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('complete')} >Complete</button>
                     </div>
 
-                    {   todoList?.some((todo)=> todo.isComplete) ?
+                    {  todoList && todoList.some((todo)=> todo.isComplete) ?
                         <FiDelete className={styles['todo-list-header__icon']} 
                             onClick={deleteCompletedTodos}
                         />  
