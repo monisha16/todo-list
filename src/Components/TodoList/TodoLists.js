@@ -22,7 +22,7 @@ const TodoLists = () => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return;
         }
-        const newTodos = [todo,...todoList];
+        const newTodos = todoList ? [todo,...todoList]: [];
         setTodoList(newTodos);
     }
 
@@ -109,18 +109,19 @@ const TodoLists = () => {
                 <div className={styles['todo-list-header']}>
                     { todoList && todoList.length !==0 &&
                         <FiCheckCircle className={styles['todo-list-header__icon']} 
-                        style={{
-                           color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
-                        }} 
-                        onClick={ () => {
-                            let newTodo = todoList.map((todo)=>({
-                            ...todo,
-                            isComplete : toggleAllComplete
-                            })) ;
-                            setTodoList([...newTodo]);
-                            settoggleAllComplete(!toggleAllComplete);
-                        }}
-                    /> }
+                            style={{
+                            color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
+                            }} 
+                            onClick={ () => {
+                                let newTodo = todoList.map((todo)=>({
+                                ...todo,
+                                isComplete : toggleAllComplete
+                                })) ;
+                                setTodoList([...newTodo]);
+                                settoggleAllComplete(!toggleAllComplete);
+                            }}
+                        />
+                    }
                     <div className={styles['toShow-todo']}>
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('all')} >All</button> |
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('active')} >Active</button> |
