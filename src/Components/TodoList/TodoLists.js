@@ -109,7 +109,7 @@ const TodoLists = () => {
                 <div className={styles['todo-list-header']}>
                     <FiCheckCircle className={styles['todo-list-header__icon']} 
                         style={{
-                           color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
+                           color: todoList?.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
                         }} 
                         onClick={ () => {
                             let newTodo = todoList.map((todo)=>({
