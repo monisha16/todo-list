@@ -12,12 +12,30 @@
         font-family: "Poppins", sans-serif;
         font-size: 3rem;
         color: orangered;
-        padding: 0.5rem;
+        // padding: 0.5rem;
         font-weight: 900;
-        width: 50%;
+        width: 30rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: linear-gradient(45deg, orangered 0%, orange 70% );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        border-style:none;
+        outline:0;
+        // border-bottom:.15rem  solid orangered;
+        text-align: center;
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
+        // overflow: hidden;
+        margin-bottom:.5rem;
+        &:focus{
+            border-bottom:.15rem  solid orangered;
+        }
+        &:hover{
+            border-bottom:.15rem  solid orangered;
+            cursor: text;
+        }
     }
 }
 
@@ -109,7 +127,7 @@
     flex-direction:column;
     width: 40rem;
     justify-content: flex-start;
-    height: 55vh;
+    height: 60vh;
     overflow-y: scroll;
     overflow-x:hidden;
 }

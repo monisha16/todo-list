@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import styles from './TodoList.module.scss';
@@ -6,11 +6,18 @@ import { FiCheckCircle, FiDelete} from "react-icons/fi";
 
 const TodoLists = () => {
     let [toShowTodo, setToShowTodo] = useState('all');
-    let [todoList, setTodoList] = useState([]);
+    let [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem("todos")));
     let [toggleAllComplete, settoggleAllComplete] = useState(true);
     let [edit, setEdit] = useState(false)
     let [newTodo, setNewTodo] = useState([])
     let todos = [];
+    let [todoHeader, setTodoHeader] = useState(JSON.parse(localStorage.getItem("todoHeader")))
+
+    useEffect(()=>{
+        localStorage.setItem("todos", JSON.stringify(todoList))
+        localStorage.setItem("todoHeader", JSON.stringify(todoHeader))
+
+    },[todoList, todoHeader])
 
     const addTodo = (todo) =>{
         if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -64,9 +71,23 @@ const TodoLists = () => {
         todos = todoList.filter((todo)=> todo.isComplete)
     }
 
+    const handleTodoHeader =(e)=>{
+        setTodoHeader(e.target.value);
+    }
+
     return (
         <div className={styles['todo-main-container']}>
-            <div className={styles['todo-main-container__title']}> plan your todos </div>
+            <div> 
+            <input 
+                value={todoHeader}
+                placeholder={'plan your todos!'}
+                maxLength="20"
+                name="text"
+                onChange={handleTodoHeader}
+                autoComplete='off'
+                className={styles['todo-main-container__title']}
+            />
+            </div>
 
             <div className={styles['todo-form-container']}>
                 <div >
