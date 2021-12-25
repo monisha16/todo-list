@@ -64,10 +64,15 @@ const TodoLists = () => {
         todos = todoList
     }
     else if(toShowTodo === 'active'){
+        console.log("active")
+        // todoList.filter((todo)=> !todo.isComplete)
         todos = todoList.filter((todo)=> !todo.isComplete)
+        console.log("todos",todos)
     }
     else if(toShowTodo === 'complete'){
+        // todoList.filter((todo)=> todo.isComplete)
         todos = todoList.filter((todo)=> todo.isComplete)
+        // setTodoList(todos)
     }
 
     const handleTodoHeader =(e)=>{
@@ -140,7 +145,7 @@ const TodoLists = () => {
                 {   todoList &&
                     <div className={styles['todo-list-content']} >
                     {
-                        todoList.map((todo) =>
+                        todos.map((todo) =>
                             <Todo key={todo.id} todo={todo} 
                             onDelete={()=>deleteTodo(todo.id)}
                             onEdit ={()=>handleEdit(todo)}
