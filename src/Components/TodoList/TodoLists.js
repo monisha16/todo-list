@@ -27,11 +27,11 @@ const TodoLists = () => {
     }
 
     const deleteTodo = (id) => {
-        setTodoList( todoList.filter((todo)=> todo.id !== id))
+        setTodoList( todoList?.filter((todo)=> todo.id !== id))
     }
 
     const deleteCompletedTodos = () =>{
-        setTodoList(todoList.filter((todo)=> !todo.isComplete))
+        setTodoList(todoList?.filter((todo)=> !todo.isComplete))
     }
 
     const updateTodo =(newValue)=>{
@@ -51,7 +51,7 @@ const TodoLists = () => {
     }
 
     const toggleCompleteItem = (id) => {
-        let updatedTodos = todoList.map(todo => {
+        let updatedTodos = todoList?.map(todo => {
         if (todo.id === id) {
             todo.isComplete = !todo.isComplete;
         }
@@ -64,10 +64,10 @@ const TodoLists = () => {
         todos = todoList
     }
     else if(toShowTodo === 'active'){
-        todos = todoList.filter((todo)=> !todo.isComplete)
+        todos = todoList?.filter((todo)=> !todo.isComplete)
     }
     else if(toShowTodo === 'complete'){
-        todos = todoList.filter((todo)=> todo.isComplete)
+        todos = todoList?.filter((todo)=> todo.isComplete)
     }
 
     const handleTodoHeader =(e)=>{
@@ -110,10 +110,10 @@ const TodoLists = () => {
                     {   todoList?.length ?
                     <FiCheckCircle className={styles['todo-list-header__icon']} 
                         style={{
-                           color: todoList.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
+                           color: todoList?.some((todo)=> !todo.isComplete) ? 'white' : 'orangered'
                         }} 
                         onClick={ () => {
-                            let newTodo = todoList.map((todo)=>({
+                            let newTodo = todoList?.map((todo)=>({
                             ...todo,
                             isComplete : toggleAllComplete
                             })) ;
@@ -127,7 +127,7 @@ const TodoLists = () => {
                         <button className={styles['toShow-todo__button']} onClick={()=>setToShowTodo('complete')} >Complete</button>
                     </div>
 
-                    {   todoList.some((todo)=> todo.isComplete) ?
+                    {   todoList?.some((todo)=> todo.isComplete) ?
                         <FiDelete className={styles['todo-list-header__icon']} 
                             onClick={deleteCompletedTodos}
                         />  
