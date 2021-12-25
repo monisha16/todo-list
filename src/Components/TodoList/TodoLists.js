@@ -137,7 +137,7 @@ const TodoLists = () => {
 
                 <div className={styles['todo-list-content']} >
                     {
-                        todos.map((todo,index) =>
+                        todos?.map((todo,index) =>
                             <Todo key={todo.id} todo={todo} 
                             onDelete={()=>deleteTodo(todo.id)}
                             onEdit ={()=>handleEdit(todo)}
@@ -150,7 +150,7 @@ const TodoLists = () => {
             </div>
 
             <div className={styles['todo-footer']}>
-                Tasks left todo: {todos.filter((todo)=> !todo.isComplete).length}
+                Tasks left todo: {todos?.filter((todo)=> !todo.isComplete).length}
             </div>
             
         </div>
