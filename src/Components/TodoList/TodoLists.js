@@ -135,9 +135,10 @@ const TodoLists = () => {
                 </div>
 
                 
-                <div className={styles['todo-list-content']} >
+                {   todoList &&
+                    <div className={styles['todo-list-content']} >
                     {
-                        todoList.map((todo,index) =>
+                        todoList.map((todo) =>
                             <Todo key={todo.id} todo={todo} 
                             onDelete={()=>deleteTodo(todo.id)}
                             onEdit ={()=>handleEdit(todo)}
@@ -145,7 +146,8 @@ const TodoLists = () => {
                             />
                         )
                     }
-                </div>
+                    </div>
+                }
 
             </div>
 
